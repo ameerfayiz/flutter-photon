@@ -25,7 +25,7 @@ class PhotonFeature {
   final String? country;
 
   /// ISO 3166-1 alpha-2 code of the [country]
-  final String countryIsoCode;
+  final String? countryIsoCode;
 
   final String? name;
 
