@@ -22,7 +22,7 @@ class PhotonFeature {
   /// The bounding box of a relation (only available if [osmType] is 'R')
   late final PhotonBoundingBox? extentBoundingBox;
 
-  final String country;
+  final String? country;
 
   /// ISO 3166-1 alpha-2 code of the [country]
   final String countryIsoCode;
@@ -68,7 +68,7 @@ class PhotonFeature {
 
   factory PhotonFeature.fromJson(Map<String, dynamic> json) {
     final coordinates = json['geometry']['coordinates'] as List<dynamic>;
-    final center = LatLng(coordinates[1], coordinates[0]);
+    final center = LatLng( double.tryParse(coordinates[1])??0.0,  double.tryParse(coordinates[0])??0.0);
 
     final properties = json['properties'];
 
@@ -77,9 +77,10 @@ class PhotonFeature {
     var extent;
     if (osmType == 'R') {
       final jsonExtent = properties['extent'] as List<dynamic>;
+      print("jsonExtent :: ${jsonExtent}");
       extent = [
-        LatLng(jsonExtent[1], jsonExtent[0]),
-        LatLng(jsonExtent[3], jsonExtent[2])
+        LatLng(double.tryParse(jsonExtent[1])??0.0, double.tryParse(jsonExtent[0])??0.0),
+        LatLng(double.tryParse(jsonExtent[3])??0.0, double.tryParse(jsonExtent[2])??0.0)
       ];
     }
 
