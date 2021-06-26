@@ -68,7 +68,7 @@ class PhotonFeature {
 
   factory PhotonFeature.fromJson(Map<String, dynamic> json) {
     final coordinates = json['geometry']['coordinates'] as List<dynamic>;
-    final center = LatLng( double.tryParse(coordinates[1])??0.0,  double.tryParse(coordinates[0])??0.0);
+    final center = LatLng( double.tryParse(coordinates[1].toString())??0.0,  double.tryParse(coordinates[0].toString())??0.0);
 
     final properties = json['properties'];
 
@@ -79,8 +79,8 @@ class PhotonFeature {
       final jsonExtent = properties['extent'] as List<dynamic>;
       print("jsonExtent :: ${jsonExtent}");
       extent = [
-        LatLng(double.tryParse(jsonExtent[1])??0.0, double.tryParse(jsonExtent[0])??0.0),
-        LatLng(double.tryParse(jsonExtent[3])??0.0, double.tryParse(jsonExtent[2])??0.0)
+        LatLng(double.tryParse(jsonExtent[1].toString())??0.0, double.tryParse(jsonExtent[0].toString())??0.0),
+        LatLng(double.tryParse(jsonExtent[3].toString())??0.0, double.tryParse(jsonExtent[2].toString())??0.0)
       ];
     }
 
