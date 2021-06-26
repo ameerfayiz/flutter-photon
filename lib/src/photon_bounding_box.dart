@@ -1,4 +1,4 @@
-import 'package:latlong2/latlng.dart';
+import 'package:latlong2/latlong.dart';
 
 class PhotonBoundingBox {
   LatLng southWest;
