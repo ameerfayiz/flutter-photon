@@ -77,7 +77,6 @@ class PhotonFeature {
     var extent;
     if (osmType == 'R') {
       final jsonExtent = properties['extent'] as List<dynamic>;
-      print("jsonExtent :: ${jsonExtent}");
       extent = [
         LatLng(double.tryParse(jsonExtent[1].toString())??0.0, double.tryParse(jsonExtent[0].toString())??0.0),
         LatLng(double.tryParse(jsonExtent[3].toString())??0.0, double.tryParse(jsonExtent[2].toString())??0.0)
