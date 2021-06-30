@@ -36,8 +36,7 @@ class PhotonFeature {
   final String? city;
   final String? county;
   final String? state;
-  
-  PhotonFeature.empty();
+ 
   
   PhotonFeature(
       this.coordinates,
